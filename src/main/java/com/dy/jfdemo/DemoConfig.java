@@ -17,6 +17,7 @@ public class DemoConfig extends JFinalConfig {
 
     @Override
     public void configRoute(Routes routes) {
+        routes.add("/",HelloController.class);
         routes.add("/hello",HelloController.class);
     }
 
