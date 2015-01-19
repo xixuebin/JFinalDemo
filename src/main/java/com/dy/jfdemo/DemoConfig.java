@@ -1,5 +1,7 @@
 package com.dy.jfdemo;
 
+import com.dy.jfdemo.Interceptor.AuthInterceptor;
+import com.dy.jfdemo.routes.FrontRoutes;
 import com.jfinal.config.*;
 import com.jfinal.render.ViewType;
 
@@ -19,6 +21,7 @@ public class DemoConfig extends JFinalConfig {
     public void configRoute(Routes routes) {
         routes.add("/",HelloController.class);
         routes.add("/hello",HelloController.class);
+        routes.add(new FrontRoutes());
     }
 
     @Override
@@ -28,6 +31,7 @@ public class DemoConfig extends JFinalConfig {
 
     @Override
     public void configInterceptor(Interceptors interceptors) {
+        interceptors.add(new AuthInterceptor());
 
     }
 
